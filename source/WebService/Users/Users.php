@@ -1,10 +1,10 @@
 <?php
 
-namespace Source\WebService;
+namespace Source\WebService\Users;
 
 use Source\Models\User\User;
 use Source\WebService\Api; 
-//use Source\Core\JWTToken;
+use Source\Core\JWTToken;
 
 class Users extends Api
 {
@@ -74,61 +74,61 @@ class Users extends Api
         $this->call(200, "success", "Encontrado com sucesso", "success")->back($response);
     }
 
-    // public function deleteUser (array $data): void
-    // {
-    //     $this->auth();
-    //     $this->call(200, "success", "Usuário excluído com sucesso", "success")
-    //         ->back($data);
-    // }
+    public function deleteUser (array $data): void
+    {
+        $this->auth();
+        $this->call(200, "success", "Usuário excluído com sucesso", "success")
+            ->back($data);
+    }
 
-    // public function updateUser (array $data): void
-    // {
-    //     $this->auth();
-    //     var_dump($data);
-    //     var_dump( $this->userAuth);
-    //     var_dump($this->userAuth->name, $this->userAuth->email);
-    // }
+    public function updateUser (array $data): void
+    {
+        $this->auth();
+        var_dump($data);
+        var_dump( $this->userAuth);
+        var_dump($this->userAuth->name, $this->userAuth->email);
+    }
 
-    // public function login(array $data): void
-    // {
-    //     // Verificar se os dados de login foram fornecidos
-    //     if (empty($data["email"]) || empty($data["password"])) {
-    //         $this->call(400, "bad_request", "Credenciais inválidas", "error")->back();
-    //         return;
-    //     }
+    public function login(array $data): void
+    {
+        // Verificar se os dados de login foram fornecidos
+        if (empty($data["email"]) || empty($data["password"])) {
+            $this->call(400, "bad_request", "Credenciais inválidas", "error")->back();
+            return;
+        }
 
-    //     $user = new User();
+        $user = new User();
 
-    //     if(!$user->findByEmail($data["email"])){
-    //         $this->call(401, "unauthorized", "Usuário não encontrado", "error")->back();
-    //         return;
-    //     }
+        if(!$user->findByEmail($data["email"])){
+            $this->call(401, "unauthorized", "Usuário não encontrado", "error")->back();
+            return;
+        }
 
-    //     if(!password_verify($data["password"], $user->getPassword())){
-    //         $this->call(401, "unauthorized", "Senha inválida", "error")->back();
-    //         return;
-    //     }
+        if(!password_verify($data["password"], $user->getPassword())){
+            $this->call(401, "unauthorized", "Senha inválida", "error")->back();
+            return;
+        }
 
-    //     // Gerar o token JWT
-    //     $jwt = new JWTToken();
-    //     $token = $jwt->create([
-    //         "email" => $user->getEmail(),
-    //         "name" => $user->getName(),
-    //         "photo" => $user->getPhoto(),
-    //         "rule" => $user->getIdType()
-    //     ]);
+        // Gerar o token JWT
+        $jwt = new JWTToken();
+        $token = $jwt->create([
+            "email" => $user->getEmail(),
+            "name" => $user->getName(),
+            "photo" => $user->getPhoto(),
+            "rule" => $user->getIdType()
+        ]);
 
-    //     // Retornar o token JWT na resposta
-    //     $this->call(200, "success", "Login realizado com sucesso", "success")
-    //         ->back([
-    //             "token" => $token,
-    //             "user" => [
-    //                 "id" => $user->getId(),
-    //                 "name" => $user->getName(),
-    //                 "email" => $user->getEmail(),
-    //                 "photo" => $user->getPhoto()
-    //             ]
-    //         ]);
+        // Retornar o token JWT na resposta
+        $this->call(200, "success", "Login realizado com sucesso", "success")
+            ->back([
+                "token" => $token,
+                "user" => [
+                    "id" => $user->getId(),
+                    "name" => $user->getName(),
+                    "email" => $user->getEmail(),
+                    "photo" => $user->getPhoto()
+                ]
+            ]);
 
-    // }
+    }
 }

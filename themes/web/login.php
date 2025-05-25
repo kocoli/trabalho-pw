@@ -1,17 +1,26 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login - Otaku's Store</title>
+    
+    <!--CSS-->
+    <link rel="stylesheet" href="/TRABALHO-PW/assets/css/login.css">
 </head>
 <body>
-    <a href="home.php">home</a>
-    <a href="sobre.php">sobre</a>
-    <a href="contato">contato</a>
-    <a href="faq.php">faq</a>
-    <a href="login.php">login</a>
-    <a href="cadastro.php">cadastro</a>
-    <h1>login</h1>
+
+<div class="form-container">
+    <h2>Login - Otaku's Store</h2>
+    <form>
+        <label for="text">Nome do usuário:</label>
+        <input type="text" id="name" name="email" required>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
+
+        <button>Entrar</button>
+    </form>
+</div>
+
 </body>
 </html>

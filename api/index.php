@@ -17,26 +17,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 use CoffeeCode\Router\Router;
 
-$route = new Router("http://localhost/trabalho-PW/api");
+$router = new Router("http://localhost/trabalho-PW/api" , ":");
 
-$route->namespace("Source\WebService");
+$router->namespace("Source\WebService");
 
-//http://localhost/trabalho-PW/api
-$route->get("/", "Site:home");
+//Rota pública: WEB
+$router->get("/", "Web:home");
+$router->get("/sobre", "Web:about");
+$router->get("/contato", "Web:contact");
+$router->get("/faq", "Web:faq");
+$router->get("/login", "Web:login");
+$router->get("/cadastro", "Web:register");
 
-// http://localhost/trabalho-PW/api/about
-$route->get("/sobre", "Site:about");
+//Rotas da aplicação: App
+$router->get("/dashboard", "App:dashboard");
+$router->get("/produtos", "App:registerProducts");
+$router->get("/pedidos", "App:ordersApp");
+$router->get("/preferencias", "App:preferences");
 
-// http://localhost/trabalho-PW/api/contato
-$route->get("/contato", "Site:contact");
+//Rota para Users
+$router->get("/users", "Users\Users:listUsers");
+$router->get("/id/{id}", "Users\Users:listUserById");
+$router->post("/add", "Users\Users:createUser");
 
-// http://localhost/trabalho-PW/api/faq
-$route->get("/faq", "Site:faq");
+$router->dispatch();
 
-// http://localhost/trabalho-PW/api/login
-$route->get("/login", "Site:login");
+/** ERROR REDIRECT */
+if ($router->error()) {
+    header('Content-Type: application/json; charset=UTF-8');
+    http_response_code(404);
 
-// http://localhost/trabalho-PW/api/cadastro
-$route->get("/cadastro", "Site:register");
+    echo json_encode([
+        "code" => 404,
+        "status" => "not_found",
+        "message" => "URL não encontrada"
+    ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
-$route->dispatch();
+}
+
+ob_end_flush();

@@ -8,6 +8,7 @@ class Api
 {
     protected $headers;
     protected $response;
+    protected $userAuth;
 
     public function __construct()
     {
@@ -38,25 +39,25 @@ class Api
         return $this;
     }
 
-    // protected function auth(): void
-    // {
-    //     $token = $this->headers['token'] ?? null;
+    protected function auth(): void
+    {
+        $token = $this->headers['token'] ?? null;
 
-    //     if (!$token) {
-    //         $this->call(401, "unauthorized", "Token não fornecido", "error")->back();
-    //         exit();
-    //     }
+        if (!$token) {
+            $this->call(401, "unauthorized", "Token não fornecido", "error")->back();
+            exit();
+        }
 
-    //     $jwt = new JWTToken();
-    //     $decoded = $jwt->decode($token);
+        $jwt = new JWTToken();
+        $decoded = $jwt->decode($token);
 
-    //     if (!$decoded) {
-    //         $this->call(401, "unauthorized", "Token inválido ou expirado", "error")->back();
-    //         exit();
-    //     }
+        if (!$decoded) {
+            $this->call(401, "unauthorized", "Token inválido ou expirado", "error")->back();
+            exit();
+        }
 
-    //     $this->userAuth = $decoded->data;
+        $this->userAuth = $decoded->data;
 
-    // }
+    }
 
 }

@@ -2,7 +2,7 @@
 
 namespace Source\WebService;
 
-class Site
+class Web
 {
     public function home() :void
     {

@@ -1,0 +1,106 @@
+@import url(cores.css);
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* Responsivo em telas pequenas */
+  gap: 40px;
+  padding: 40px;
+}
+
+.hero-text {
+  background: linear-gradient(to top, var(--primary-color), var(--light-color));
+  color: #1f1f1f;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 600px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+}
+
+.hero-text h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: var(--terciary-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.hero-text p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.hero-text ul {
+  list-style-type: '✨ ';
+  padding-left: 0;
+  text-align: left;
+  display: inline-block;
+}
+
+.hero-text ul li {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+.login-btn-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+
+.shape {
+  width: 780px;
+  height: 400px;
+  background: linear-gradient(135deg, var(--), #fad2c4);
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 5s ease-in-out infinite;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease;
+}
+
+.shape:hover {
+  transform: scale(1.05);
+}
+
+.shape img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.3s ease;
+}
+
+.shape:hover img {
+  transform: scale(1.02);
+}
+
+
+/* Animação de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animação de leve flutuação */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
