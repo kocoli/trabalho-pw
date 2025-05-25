@@ -1,61 +1,107 @@
+main{
+    background-image: url(https://lunetas.com.br/wp-content/uploads/2022/04/animes-e-criancas-portal-lunetas.jpg);
+}
+
 /* Estilo da página de contato */
 #contact {
-    margin: 20px auto;
-    max-width: 900px;
-    padding: 20px;
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 40px;
     background-color: var(--contrast);
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
 }
 
 #contact h2 {
     color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#contact p {
+    color: #444;
+    font-size: 1rem;
+    margin-bottom: 30px;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-group label {
-    font-size: 1.1rem;
-    color: #333;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 8px;
 }
 
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 4px;
+.form-group input,
+.form-group textarea {
+    padding: 12px 15px;
+    font-size: 1rem;
     border: 1px solid #ccc;
+    border-radius: 12px;
+    outline: none;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    background-color: #fff;
 }
 
 .form-group textarea {
-    height: 150px;
+    min-height: 140px;
     resize: vertical;
 }
 
 .btn-submit {
     background-color: var(--primary-color);
     color: var(--contrast);
-    padding: 10px 15px;
+    font-size: 1rem;
+    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 12px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .btn-submit:hover {
     background-color: var(--secundary-color);
+    transform: translateY(-2px);
 }
 
 ul {
-    list-style-type: none;
+    list-style: none;
     padding-left: 0;
+    margin-top: 20px;
 }
 
 ul li {
-    margin: 10px 0;
+    margin: 12px 0;
+    font-size: 1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
 }
 
 ul li i {
+    color: var(--primary-color);
     margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }

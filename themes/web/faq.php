@@ -9,20 +9,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Link para o CSS personalizado -->
-    <link rel="stylesheet" href="/TRABALHO-PW/assets/css/home.css">
-    <link rel="stylesheet" href="/TRABALHO-PW/assets/css/faq.css">
+    <link rel="stylesheet" href="/trabalho-pw/assets/css/style.css">
+    <link rel="stylesheet" href="/trabalho-pw/assets/css/faq.css">
 </head>
 <body>
     <header>
-        <h1><i class="fa-solid fa-book"></i> OTAKU'S STORE</h1>
+        <img src="/trabalho-pw/assets/img/pikachu.png">
 
         <nav id="sidebar">
-            <a href="/trabalho-PW/api">HOME</a>
-            <a href="/trabalho-PW/api/sobre">SOBRE</a>
-            <a href="/trabalho-PW/api/contato">CONTATO</a>
-            <a href="/trabalho-PW/api/faq">FAQ</a>
-            <a href="/trabalho-PW/api/login">LOGIN</a>
-            <a href="/trabalho-PW/api/cadastro">CADASTRO</a>
+            <a href="/trabalho-pw/api">HOME</a>
+            <a href="/trabalho-pw/api/sobre">ABOUT</a>
+            <a href="/trabalho-pw/api/contato">CONTACT</a>
+            <a href="/trabalho-pw/api/faq">FAQ</a>
         </nav>
     </header>
 
@@ -62,14 +60,35 @@
         </section>
     </main>
 
-    <footer>
-        <p>Conecte-se com a gente:</p>
+    <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>Sobre Nós</h3>
+        <p>Somos apaixonados por transformar ideias em soluções. Acompanhe nosso trabalho e fique por dentro das novidades!</p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="/trabalho-pw/api">Início</a></li>
+          <li><a href="/trabalho-pw/api/sobre">Produtos</a></li>
+          <li><a href="/trabalho-pw/api/contato">Contato</a></li>
+          <li><a href="/trabalho-pw/api/faq">Privacidade</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h3>Redes Sociais</h3>
         <div class="social-icons">
-            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
         </div>
-    </footer>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Todos os direitos reservados | Feito com ❤️</p>
+    </div>
+  </footer>
 </body>
 </html>

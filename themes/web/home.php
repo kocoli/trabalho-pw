@@ -9,19 +9,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!--CSS-->
-    <link rel="stylesheet" href="/TRABALHO-PW/assets/css/style.css">
-    <link rel="stylesheet" href="/TRABALHO-PW/assets/css/home.css">
+    <link rel="stylesheet" href="/trabalho-pw/assets/css/style.css">
+    <link rel="stylesheet" href="/trabalho-pw/assets/css/home.css">
 
 </head>
 <body>
     <header>
-        <img src="/TRABALHO-PW/assets/img/pikachu.png">
+        <img src="/trabalho-pw/assets/img/pikachu.png">
 
         <nav id="sidebar">
-            <a href="/trabalho-PW/api">HOME</a>
-            <a href="/trabalho-PW/api/sobre">ABOUT</a>
-            <a href="/trabalho-PW/api/contato">CONTACT</a>
-            <a href="/trabalho-PW/api/faq">FAQ</a>
+            <a href="/trabalho-pw/api">HOME</a>
+            <a href="/trabalho-pw/api/sobre">ABOUT</a>
+            <a href="/trabalho-pw/api/contato">CONTACT</a>
+            <a href="/trabalho-pw/api/faq">FAQ</a>
         </nav>
     </header>
     <main>
@@ -37,8 +37,8 @@
                 </ul>
                 <p>Não perca tempo, entre e deixe-nos fazer mágica</p>
                 <div class="login-btn-container">
-                    <a href="/trabalho-PW/api/login" class="btn-default">Faça Login</a>
-                    <a href="/trabalho-PW/api/cadastro" class="btn-default">crie uma conta</a>
+                    <a href="/trabalho-pw/api/login" class="btn-default">Faça Login</a>
+                    <a href="/trabalho-pw/api/cadastro" class="btn-default">crie uma conta</a>
                 </div>
             </div>
             <div class="shape">
@@ -57,10 +57,10 @@
       <div class="footer-links">
         <h3>Links Rápidos</h3>
         <ul>
-          <li><a href="#">Início</a></li>
-          <li><a href="#">Produtos</a></li>
-          <li><a href="#">Contato</a></li>
-          <li><a href="#">Privacidade</a></li>
+          <li><a href="/trabalho-pw/api">Início</a></li>
+          <li><a href="/trabalho-pw/api/sobre">Produtos</a></li>
+          <li><a href="/trabalho-pw/api/contato">Contato</a></li>
+          <li><a href="/trabalho-pw/api/faq">Privacidade</a></li>
         </ul>
       </div>
 
