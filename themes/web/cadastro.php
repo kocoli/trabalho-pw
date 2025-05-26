@@ -37,7 +37,7 @@
                 <option value="outros">Outros</option>
             </select>
     
-            <button>Cadastrar</button>
+            <button id="btn-register">Cadastrar</button>
         </form>
     </div>
     
