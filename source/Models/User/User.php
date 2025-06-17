@@ -8,37 +8,29 @@ use \PDOException;
 
 class User extends Model
 {
+    protected $table = "users";
+
     private ?int $id;
     private ?int $idType;
     private ?string $name;
     private ?string $email;
     private ?string $password;
-    private ?string $photo;
-    private ?string $address;
-    private ?string $phone;
 
-    public function __construct
-    (
-        int $id = null, 
-        int $idType = null,
-        string $name = null,
-        string $email = null,
-        string $password = null,
-        string $photo = null,
-        string $address = null,
-        string $phone = null
+    public function __construct(
+        ?int $id = null, 
+        ?int $idType = null, 
+        ?string $name = null, 
+        ?string $email = null, 
+        ?string $password = null
     )
     {
-        $this->table = "users";
         $this->id = $id;
         $this->idType = $idType;
         $this->name = $name;
         $this->email = $email;
         $this->password = $password;
-        $this->photo = $photo;
-        $this->address = $address;
-        $this->phone = $phone;
     }
+
 
     public function getId(): ?int 
     { 
@@ -60,18 +52,6 @@ class User extends Model
     { 
         return $this->password;
     }
-    public function getPhoto(): ?string 
-    { 
-        return $this->photo; 
-    }
-    public function getAddress(): ?string 
-    { 
-        return $this->address; 
-    }
-    public function getPhone(): ?string 
-    { 
-        return $this->phone;
-    }
 
     public function setName(string $name): void 
     { 
@@ -85,73 +65,97 @@ class User extends Model
     { 
         $this->password = $password; 
     }
-    public function setPhoto(string $photo): void 
-    { 
-        $this->photo = $photo; 
-    }
-    public function setAddress(string $address): void 
-    { 
-        $this->address = $address; 
-    }
-    public function setPhone(string $phone): void 
-    { 
-        $this->phone = $phone; 
-    }
 
-    public function insert (): bool
-    {
+    // public function insert (): bool
+    // {
 
-        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            $this->errorMessage = "E-mail inválido";
-            return false;
-        }
+    //     if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+    //         $this->errorMessage = "E-mail inválido";
+    //         return false;
+    //     }
 
-        $sql = "SELECT * FROM users WHERE email = :email";
-        $stmt = Connect::getInstance()->prepare($sql);
-        $stmt->bindValue(":email", $this->email);
-        $stmt->execute();
+    //     $sql = "SELECT * FROM users WHERE email = :email";
+    //     $stmt = Connect::getInstance()->prepare($sql);
+    //     $stmt->bindValue(":email", $this->email);
+    //     $stmt->execute();
 
-        if ($stmt->rowCount() > 0) {
-            $this->errorMessage = "E-mail já cadastrado";
-            return false;
-        }
+    //     if ($stmt->rowCount() > 0) {
+    //         $this->errorMessage = "E-mail já cadastrado";
+    //         return false;
+    //     }
 
-        $this->password = password_hash($this->password, PASSWORD_DEFAULT);
+    //     $this->password = password_hash($this->password, PASSWORD_DEFAULT);
 
-        if(!parent::insert()){
-            $this->errorMessage = "Erro ao inserir o registro: {$this->getErrorMessage()}";
-            return false;
-        }
+    //     if(!parent::insert()){
+    //         $this->errorMessage = "Erro ao inserir o registro: {$this->getErrorMessage()}";
+    //         return false;
+    //     }
 
-        return true;
-    }
+    //     return true;
+    // }
 
-    public function findByEmail (string $email): bool
-    {
-        $sql = "SELECT * FROM users WHERE email = :email";
-        $stmt = Connect::getInstance()->prepare($sql);
-        $stmt->bindValue(":email", $email);
+    // public function findByEmail (string $email): bool
+    // {
+    //     $sql = "SELECT * FROM users WHERE email = :email";
+    //     $stmt = Connect::getInstance()->prepare($sql);
+    //     $stmt->bindValue(":email", $email);
 
-        try {
-            $stmt->execute();
-            $result = $stmt->fetch();
-            if (!$result) {
-                return false;
-            }
-            $this->id = $result->id;
-            $this->idType = $result->idType;
-            $this->name = $result->name;
-            $this->email = $result->email;
-            $this->password = $result->password;
-            $this->photo = $result->photo;
-            $this->address = $result->address;
-            $this->phone = $result->phone;
+    //     try {
+    //         $stmt->execute();
+    //         $result = $stmt->fetch(\PDO::FETCH_OBJ);
+    //         if (!$result) {
+    //             return false;
+    //         }
+    //         $this->id = $result->id;
+    //         $this->idType = $result->idType;
+    //         $this->name = $result->name;
+    //         $this->email = $result->email;
+    //         $this->password = $result->password;
 
-            return true;
-        } catch (PDOException $e) {
-            $this->errorMessage = "Erro ao buscar o registro: {$e->getMessage()}";
-            return false;
-        }
+    //         return true;
+    //     } catch (PDOException $e) {
+    //         $this->errorMessage = "Erro ao buscar o registro: {$e->getMessage()}";
+    //         return false;
+    //     }
 
-    }
+    // }
+
+    // public function updateById(): bool
+    // {
+    //     try {
+    //         $sql = "UPDATE users SET name = :name, email = :email WHERE id = :id";
+    //         $stmt = Connect::getInstance()->prepare($sql);
+    //         $stmt->bindValue(":name", $this->name);
+    //         $stmt->bindValue(":email", $this->email);
+    //         $stmt->bindValue(":id", $this->id);
+
+    //         if ($stmt->execute()) {
+    //             return true;
+    //         } else {
+    //             $this->errorMessage = "Erro ao executar update";
+    //             return false;
+    //         }
+    //     } catch (\PDOException $e) {
+    //         $this->errorMessage = "Erro ao atualizar: " . $e->getMessage();
+    //         return false;
+    //     }
+    // }
+
+    // public function deleteById(int $id): bool
+    // {
+    //     try {
+    //     $stmt = Connect::getInstance()->prepare("DELETE FROM {$this->table} WHERE id = :id");
+    //     $stmt->bindValue(":id", $id); 
+    //     $stmt->execute();
+
+    //     if ($stmt->rowCount() === 0) {
+    //         return false; // Nenhuma linha foi afetada (ID não encontrado)
+    //     }
+
+    //     return true;
+    //     } catch (PDOException $e) {
+    //     $this->errorMessage = "Erro ao excluir o registro: {$e->getMessage()}";
+    //     return false;
+    //     }
+    // }
 }

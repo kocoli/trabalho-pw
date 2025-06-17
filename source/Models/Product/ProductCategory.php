@@ -2,8 +2,12 @@
 
 namespace Source\Models\Product;
 
-class ProductCategory
+use Source\Core\Model;
+
+class ProductCategory extends Model
 {
+    protected $table = "product_categories";
+
     private $id;
     private $name;
 

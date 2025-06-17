@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "000192a4-f4a1-4b1a-9135-31c1948b54a8",
+		"name": "products",
+		"description": "StartFragment\n\n## API - Products\n\nEsta coleção contém as requisições responsáveis pela **gestão de produtos** no sistema. Permite testar os principais endpoints da API relacionados a produtos, incluindo:\n\n- ✅ Listagem de todos os produtos\n    \n- 🔍 Consulta de produto por ID\n    \n- ➕ Inserção de novos produtos\n    \n- 🔄 Atualização de produtos existentes\n    \n- ❌ Remoção de produtos por ID\n    \n\nEssencial para validar as funcionalidades de cadastro e gerenciamento de produtos no sistema.\n\nEndFragment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44407507",
+		"_collection_link": "https://red-robot-3014390.postman.co/workspace/a845f4f7-bb6b-427a-8a00-ff2dca8704e1/collection/44407507-000192a4-f4a1-4b1a-9135-31c1948b54a8?action=share&source=collection_link&creator=44407507"
+	},
+	"item": [
+		{
+			"name": "products-find-all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/trabalho-PW/api/products/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"trabalho-PW",
+						"api",
+						"products",
+						""
+					]
+				},
+				"description": "StartFragment\n\n### 🟢 GET - Listar Todos os Produtos\n\n- **Endpoint:** `http://localhost/trabalho-PW/api/products/`\n    \n- **Descrição:** Retorna todos os produtos cadastrados.\n    \n\n#### ✅ Exemplo de Resposta (JSON)\n\nEndFragment  \n  \n\n``` json\n[\n  {\n    \"id\": 1,\n    \"idCategory\": 2,\n    \"name\": \"Produto Exemplo\",\n    \"price\": 29.90\n  },\n  ...\n]\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "products-find-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/trabalho-PW/api/products/id/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"trabalho-PW",
+						"api",
+						"products",
+						"id",
+						"5"
+					]
+				},
+				"description": "StartFragment\n\n### 🟢 GET - Buscar Produto por ID\n\n- **Endpoint:** `http://localhost/trabalho-PW/api/products/id/{id}`\n    \n- **Exemplo:** `http://localhost/trabalho-PW/api/products/id/5`\n    \n- **Descrição:** Retorna um produto específico pelo ID.\n    \n\n#### ✅ Exemplo de Resposta\n\nEndFragment\n\n``` json\n{\n  \"id\": 5,\n  \"idCategory\": 3,\n  \"name\": \"Kusuriya no Hitorigoto\",\n  \"price\": 24.43\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "insert-products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "idCategory",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Kusuriya no Hitorigoto",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "24.43",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/trabalho-PW/api/products/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"trabalho-PW",
+						"api",
+						"products",
+						"add"
+					]
+				},
+				"description": "StartFragment\n\n### 🔴 POST - Inserir Novo Produto\n\n- **Endpoint:** `http://localhost/trabalho-PW/api/products/add`\n    \n- **Content-Type:** `application/x-www-form-urlencoded`\n    \n- **Descrição:** Insere um novo produto no banco de dados.\n    \n\nEndFragment\n\n| **campo** | tipo | **obrigatório** | **descrição** |\n| --- | --- | --- | --- |\n| idCategory | int | sim | Id da categoria do produto |\n| name | string | sim | Nome do produto |\n| price | float | sim | Preço do produto |"
+			},
+			"response": []
+		},
+		{
+			"name": "update-products",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "idCategory",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Miniatura do Zoro: One Piece paraguation PLUS",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "32.50",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/trabalho-PW/api/products/update/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"trabalho-PW",
+						"api",
+						"products",
+						"update",
+						"2"
+					]
+				},
+				"description": "StartFragment\n\n### 🟡 PUT - Atualizar Produto\n\n- **Endpoint:** `http://localhost/trabalho-PW/api/products/update/{id}`\n    \n- **Exemplo:** `http://localhost/trabalho-PW/api/products/update/2`\n    \n- **Content-Type:** `application/x-www-form-urlencoded`\n    \n- **Descrição:** Atualiza os dados de um produto existente.\n    \n\nEndFragment  \n  \n\n| **campo** | **tipo** | **obrigatório** | **descrição** |\n| --- | --- | --- | --- |\n| idCategory | int | sim | Nova categoria |\n| name | string | sim | Novo nome |\n| price | float | sim | Novo preço |"
+			},
+			"response": []
+		},
+		{
+			"name": "delete-products",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/trabalho-PW/api/products/delete/id/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"trabalho-PW",
+						"api",
+						"products",
+						"delete",
+						"id",
+						"7"
+					]
+				},
+				"description": "StartFragment\n\n### 🔻 DELETE - Excluir Produto\n\n- **Endpoint:** `http://localhost/trabalho-PW/api/products/delete/id/{id}`\n    \n- **Exemplo:** `http://localhost/trabalho-PW/api/products/delete/id/7`\n    \n- **Descrição:** Remove o produto com o ID informado do banco de dados.\n    \n\n#### ✅ Exemplo de Resposta (sucesso)\n\nEndFragment  \n  \n\n``` json\n{\n  \"message\": \"Produto removido com sucesso\"\n}\n\n ```"
+			},
+			"response": []
+		}
+	]
+}

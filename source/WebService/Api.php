@@ -16,7 +16,7 @@ class Api
         $this->headers = getallheaders();
     }
 
-    protected function call (int $code, string $status = null, string $message = null, $type = null): Api
+    protected function call (int $code, ?string $status = null, ?string $message = null, ?string $type = null): Api
     {
         http_response_code($code);
         if(!empty($status)){
@@ -30,7 +30,7 @@ class Api
         return $this;
     }
 
-    protected function back(array $data = null): Api
+    protected function back(?array $data = null): Api
     {
         if ($data) {
             $this->response["data"] = $data;
@@ -39,25 +39,27 @@ class Api
         return $this;
     }
 
-    protected function auth(): void
+    protected function auth(): bool
     {
-        $token = $this->headers['token'] ?? null;
+        $headers = getallheaders();
 
-        if (!$token) {
+        if (!isset($headers['Authorization'])) {
             $this->call(401, "unauthorized", "Token não fornecido", "error")->back();
-            exit();
+            return false;
         }
+
+        $authHeader = trim($headers['Authorization']);
+        $token = str_replace("Bearer ", "", $authHeader);
 
         $jwt = new JWTToken();
         $decoded = $jwt->decode($token);
 
         if (!$decoded) {
             $this->call(401, "unauthorized", "Token inválido ou expirado", "error")->back();
-            exit();
+            return false;
         }
 
-        $this->userAuth = $decoded->data;
-
+        return true;
     }
 
 }
